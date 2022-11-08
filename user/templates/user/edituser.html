@@ -1,0 +1,15 @@
+{% extends 'user/base.html' %}
+{% block pagetitle %} <title>Edit User</title> {% endblock pagetitle %}
+{% block content %}
+    <div class="row">
+        <div class="col-sm-8 offset-2">
+            <h3 class="text-center alert alert-info">Edit User Details</h3>
+            <form action="" method="POST">
+                {% csrf_token %}
+                {{form.as_p}}
+                <input type="submit" value="Update" class="btn btn-warning">
+                <a href={% url 'index' %} class="btn btn-info">Back To Home</a>
+            </form>
+        </div>
+    </div>
+{% endblock content %}

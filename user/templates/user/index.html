@@ -1,0 +1,43 @@
+{% extends 'user/base.html' %}
+{% block pagetitle %} <title>CRUD in Django</title> {% endblock pagetitle %}
+{% block content %}
+    <div class="row">
+        <div class="col-sm-4">
+            <h3 class="text-center alert alert-info">Add User Here</h3>
+            <form action="" method="POST">
+                {% csrf_token %}
+                {{form.as_p}}
+                <input type="submit" class="btn btn-success" value="Add User">
+            </form>
+        </div>
+        <div class="col-sm-7 offset-1">
+            <h3 class="text-center alert alert-info">List of Users</h3>
+            {% if data %}
+                <table class="table table-hover">
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Age</th>
+                        <th>Actions</th>
+                    </tr>
+                    {% for user in data %}
+                        <tr>
+                            <td>{{user.id}}</td>
+                            <td>{{user.name}}</td>
+                            <td>{{user.email}}</td>
+                            <td>{{user.age}}</td>
+                            <td>
+                                <a href={% url 'edit' user.id %} class="btn btn-sm btn-warning">Edit</a>
+                                <a href={% url 'delete' user.id %} class="btn btn-sm btn-danger">Delete</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            {% else %}
+                <h2 class="text-center mt-5">No Users to Show.</h2>
+                <h2 class="text-center mt-5">Add Some Users to See them Here.</h2>
+            {% endif %}
+        </div>
+    </div>
+{% endblock content %}
