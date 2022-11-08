@@ -17,3 +17,10 @@
 - DTL as a Template Engine.
 - SQLite for Data Storage.
 - BootStrap for WebPage Design.
+
+# Admin Panel LogIn Details
+
+To View Table Data in the Admin Panel, You Have to LogIn to that using the below details:
+
+- UserName: root
+- Password: root
